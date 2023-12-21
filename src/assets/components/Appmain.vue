@@ -1,8 +1,9 @@
 <template lang="">
     <article v-for="film in movies">
-        <h1>Title: {{film.title}}</h1>
+        <h1> {{film.title}}</h1>
         <p>Original title: {{film.original_title}}
         </p>
+        <img  :src="'https://image.tmdb.org/t/p/w500' + film.poster_path" alt="film.title">
         <p>language: {{ getFlagElement(film.original_language) }}</p>
         <p>overview: {{film.overview}}</p>
         <p>vote: {{film.vote_average}}</p>
