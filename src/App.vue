@@ -1,5 +1,5 @@
 <template lang="">
-  <appHeader @search="getFilmElement"/>
+  <appHeader @search="getFilmAndSeries"/>
   <appmain :movies="movieslist"/>
   <appSeries :series="seriesList"/>
 
@@ -48,7 +48,13 @@ export default {
           // handle error
           console.error(error);
         });
-    }
+    },
+    methods: {
+        getFilmAndSeries(searchedString=""){
+            this.getFilmElement(searchedString);
+            this.getSeriesElement(searchedString)
+        }
+    },
   },
   created() {
     console.log("film")
@@ -56,6 +62,9 @@ export default {
   },
   created() {
     this.getSeriesElement("")
+  },
+  created() {
+    this.getFilmAndSeries("")
   },
 
 
