@@ -8,7 +8,11 @@
 </template>
 <script>
 import {store} from "../../js/store.js";
+import appSeries from "./appSeries.vue";
 export default {
+    components:{
+        appSeries
+    },
     data() {
         return {
             trovaFilm:"",

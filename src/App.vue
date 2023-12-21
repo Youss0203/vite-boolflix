@@ -49,13 +49,12 @@ export default {
           console.error(error);
         });
     },
-    methods: {
+    
         getFilmAndSeries(searchedString=""){
             this.getFilmElement(searchedString);
             this.getSeriesElement(searchedString)
         }
     },
-  },
   created() {
     console.log("film")
     this.getFilmElement("")
