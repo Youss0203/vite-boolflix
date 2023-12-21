@@ -1,19 +1,30 @@
 <template lang="">
     <article v-for="film in movies">
-        {{film.title}}
-        {{film.original_title}}
-        {{film.original_language}}
-        {{film.vote_average}}
+        <h1>Title: {{film.title}}</h1>
+        <p>Orignal title: {{film.original_title}}
+        </p>
+        <p>language: {{ getFlagElement(film.original_language) }}</p>
+        <p>overview: {{film.overview}}</p>
+        <p>vote: {{film.vote_average}}</p>
     </article>
 </template>
 <script>
-import {store} from "../../js/store.js";
+const flags = {
+        'it': '🇮🇹',
+        'en': '🇬🇧',
+        'ja': '🇯🇵',
+        'fr': '🇫🇷',
+        'de': '🇩🇪',
+        'es': '🇪🇸',
+     }
+
 export default {
     components:{
+       
     },
     data() {
         return {
-           
+            lingue: ['en', 'es', 'fr','ja','de','it'],
         }
     },
     props:{
@@ -21,6 +32,11 @@ export default {
             type:Array,
             reuired:true,
         }
+    },
+    methods: {
+        getFlagElement(lingue) {
+      return flags[lingue] || 'no language specified';
+    },
     },
 }
 </script>
