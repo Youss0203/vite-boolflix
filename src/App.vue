@@ -1,21 +1,25 @@
 <template lang="">
   <appHeader @search="getFilmElement"/>
   <appmain :movies="movieslist"/>
+  <appSeries :series="seriesList"/>
+
 </template>
 <script>
 import axios from "axios";
-import { store } from "./js/store.js";
 import appHeader from "./assets/components/appHeader.vue"
 import Appmain from './assets/components/Appmain.vue';
+import appSeries from "./assets/components/appSeries.vue";
 export default {
   components: {
     appHeader,
     Appmain,
+    appSeries
 
   },
   data() {
     return {
       movieslist:[],
+      seriesList:[],
     }
   },
   methods: {
@@ -31,11 +35,27 @@ export default {
           // handle error
           console.error(error);
         });
+    },
+    getSeriesElement(cercaSerie=''){
+      console.log(cercaSerie)
+      axios.get('https://api.themoviedb.org/3/search/tv?api_key=4f1af5c5fa62d3f92335f2fe43c3b48c&query='+ cercaSerie)
+        .then((response) => {
+          // handle success
+          console.log(response);
+          this.seriesList=response.data.results
+        })
+        .catch(function (error) {
+          // handle error
+          console.error(error);
+        });
     }
   },
   created() {
     console.log("film")
-    this.getFilmElement("007")
+    this.getFilmElement("")
+  },
+  created() {
+    this.getSeriesElement("")
   },
 
 

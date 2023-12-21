@@ -1,12 +1,14 @@
 <template lang="">
     <article v-for="film in movies">
         <h1>Title: {{film.title}}</h1>
-        <p>Orignal title: {{film.original_title}}
+        <p>Original title: {{film.original_title}}
         </p>
         <p>language: {{ getFlagElement(film.original_language) }}</p>
         <p>overview: {{film.overview}}</p>
         <p>vote: {{film.vote_average}}</p>
     </article>
+
+    
 </template>
 <script>
 const flags = {
@@ -30,8 +32,8 @@ export default {
     props:{
         movies:{
             type:Array,
-            reuired:true,
-        }
+            required:true,
+        },
     },
     methods: {
         getFlagElement(lingue) {

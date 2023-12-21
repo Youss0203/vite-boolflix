@@ -1,8 +1,8 @@
 <template lang="">
     <div class="row">
         <div class="container d-flex justify-content-center">
-    <input type="text" placeholder="search a film"  v-model="trovaFilm" class="mt-5">
-    <button  @click="$emit('search',trovaFilm)" class="mt-5">search</button>
+    <input type="text" placeholder="search a film"  v-model="trovaFilm"  class="mt-5">
+    <button  @click="$emit('search',trovaFilm,trovaSerie)" class="mt-5">search</button>
     </div>
     </div>
 </template>
@@ -12,6 +12,7 @@ export default {
     data() {
         return {
             trovaFilm:"",
+            trovaSerie:"",
         }
     },
 }
