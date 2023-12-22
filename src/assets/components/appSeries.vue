@@ -15,8 +15,9 @@ export default {
             type:Array,
             required:true,
 
-        }
-    }
+        },
+
+}
 }
 </script>
 <style lang="scss">
