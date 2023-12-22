@@ -1,7 +1,9 @@
 <template lang="">
   <appHeader @search="getFilmAndSeries"/>
+  <main>
   <appmain :movies="movieslist"/>
   <appSeries :series="seriesList"/>
+  </main>
 
 </template>
 <script>
@@ -63,7 +65,7 @@ export default {
     this.getSeriesElement("")
   },
   created() {
-    this.getFilmAndSeries("")
+    this.getFilmAndSeries("fast")
   },
 
 

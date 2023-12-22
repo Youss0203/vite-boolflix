@@ -1,13 +1,16 @@
 <template lang="">
+    <div class="row">
+    <div class="container">
     <article v-for="film in movies">
-        <h1> {{film.title}}</h1>
+        <h6> {{film.title}}</h6>
         <p>Original title: {{film.original_title}}
         </p>
         <img  :src="'https://image.tmdb.org/t/p/w500' + film.poster_path" alt="film.title">
         <p>language: {{ getFlagElement(film.original_language) }}</p>
-        <p>overview: {{film.overview}}</p>
         <p>vote: {{film.vote_average}}</p>
     </article>
+    </div>
+    </div>
 
     
 </template>
@@ -45,7 +48,24 @@ export default {
 </script>
 <style lang="scss" scoped>
 @use "../../styles/general.scss" as*;
+div.container{
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    img{
+        height: 200px;
+    }
+}
 article{
     text-align: center;
+    width: calc((100% / 3) - 1rem);
+    margin-left: .5rem;
+    margin-right: .5rem;
+    color:white;
+
+    p{
+        font-size:10px;
+    }
 }
 </style>
