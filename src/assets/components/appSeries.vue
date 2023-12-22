@@ -5,7 +5,7 @@
         </p>
         <img  :src="'https://image.tmdb.org/t/p/w500' + serie.poster_path" alt="film.title">
         <p>language: {{ getFlagElement(serie.original_language) }}</p>
-        <p>vote: {{serie.vote_average}}</p>
+        <p>vote: {{Math.floor(serie.vote_average/2)}}</p>
     </article>
 </template>
 <script>
